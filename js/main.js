@@ -284,6 +284,18 @@ document.addEventListener("DOMContentLoaded", () => {
     slideInterval = setInterval(nextSlide, 5000); // Ganti slide setiap 5 detik
   }
 
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const target = document.querySelector(this.getAttribute('href'));
+    target.scrollIntoView({ behavior: 'smooth' });
+
+    // Ubah URL tanpa reload (hapus tanda #)
+    window.history.pushState(null, '', this.getAttribute('href').replace('#', '/'));
+  });
+});
+
   // Initialize Slider
   createDots();
   goToSlide(0);
