@@ -61,6 +61,7 @@ faqItems.forEach((item) => {
 
 // Header scroll effect and active nav link
 const header = document.getElementById("main-header");
+// MEMASTIKAN SECTIONS MENGGUNAKAN ID YANG TERBARU (termasuk #beranda)
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-link");
 
@@ -72,18 +73,32 @@ window.addEventListener("scroll", () => {
     header.classList.remove("shadow-lg", "border-b", "border-gray-700");
   }
 
-  // Active nav link on scroll
+  // Active nav link on scroll (Scroll Spy)
   let current = "";
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
-    if (pageYOffset >= sectionTop - 60) {
+    // Cek ID 'beranda' di sini
+    if (
+      section.id === "beranda" &&
+      pageYOffset < section.offsetTop + section.offsetHeight / 2
+    ) {
+      current = section.getAttribute("id");
+    }
+    // Logika normal untuk section lain
+    else if (pageYOffset >= sectionTop - 60) {
       current = section.getAttribute("id");
     }
   });
 
   navLinks.forEach((link) => {
     link.classList.remove("active");
-    if (link.getAttribute("href").includes(current)) {
+    // Karena logo sekarang menunjuk ke #beranda, kita pastikan link navigasi yang sesuai mendapatkan status aktif.
+    if (current === "beranda" && link.getAttribute("href") === "#beranda") {
+      link.classList.add("active");
+    } else if (
+      link.getAttribute("href").includes(current) &&
+      current !== "beranda"
+    ) {
       link.classList.add("active");
     }
   });

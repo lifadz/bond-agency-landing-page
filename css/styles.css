@@ -4,7 +4,8 @@ body {
 }
 
 /* === Hero Slider === */
-#hero {
+/* Mengubah selector dari #hero menjadi #beranda */
+#beranda {
   position: relative;
   overflow: hidden;
 }
@@ -37,6 +38,8 @@ body {
   position: relative;
   z-index: 3;
 }
+/* Mengubah selector dari #hero-text-content menjadi #beranda-text-content jika digunakan untuk styling unik, tapi karena di HTML ID-nya masih hero-text-content, kita biarkan saja. Namun di bagian atas kita ganti yang merujuk ke ID utama. */
+/* Catatan: Di index.html, ID-nya adalah 'hero-text-content', jadi di CSS kita biarkan saja. */
 #hero-text-content {
   transition: opacity 0.5s ease-in-out;
 }
