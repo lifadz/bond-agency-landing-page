@@ -28,11 +28,6 @@ The website focuses on delivering a fast-loading, SEO-friendly experience that c
 
 ---
 
-### 🌍 Live Website
-👉 [https://www.mitrajasainsurance.com](https://www.mitrajasainsurance.com)
-
----
-
 <p align="center">
   <i>Developed by <b>FZ</b></i>
 </p>
